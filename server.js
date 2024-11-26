@@ -7,7 +7,7 @@ const minionsRoute = require('./server/routs/minionsRoute');
 const meetingsRoute = require('./server/routs/meetingsRoute');
 const ideasRoute = require('./server/routs/ideasRoute');
 
-const AppError = require('../utils/appError');
+const AppError = require('./utils/appError');
 const globalErrorHandler = require('./server/controllers/errorController');
 module.exports = app;
 

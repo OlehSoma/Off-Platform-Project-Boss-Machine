@@ -4,7 +4,7 @@ const {
 	deleteAllFromDatabase,
 } = require('../db');
 
-const AppError = require('../../../utils/appError');
+const AppError = require('../../utils/appError');
 
 exports.getAllMeetings = (req, res, next) => {
 	const meetings = getAllFromDatabase('meetings');

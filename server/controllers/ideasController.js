@@ -6,7 +6,7 @@ const {
 	updateInstanceInDatabase,
 } = require('../db');
 
-const AppError = require('../../../utils/appError');
+const AppError = require('../../utils/appError');
 
 exports.getAllIdeas = (req, res, next) => {
 	const ideas = getAllFromDatabase('ideas');

@@ -1,4 +1,4 @@
-const AppError = require('../../utils/appError');
+const AppError = require('../utils/appError');
 const { getFromDatabaseById } = require('../server/db');
 const checkMillionDollarIdea = (req, res, next) => {
 	let weeklyRevenue = 0;

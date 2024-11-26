@@ -6,7 +6,7 @@ const {
 	updateInstanceInDatabase,
 } = require('../db');
 
-const AppError = require('../../../utils/appError');
+const AppError = require('../../utils/appError');
 
 exports.getAllMinions = (req, res, next) => {
 	const minions = getAllFromDatabase('minions');
