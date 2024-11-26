@@ -19,25 +19,11 @@ exports.getAllMinions = (req, res, next) => {
 };
 
 exports.getMinionById = (req, res, next) => {
-	const { minionId } = req.params;
-	const minion = getFromDatabaseById('minions', minionId);
-
-	if (!minion) {
-		return next(new AppError(`Minion with id ${minionId} not found`, 404));
-	}
-
-	res.send(minion);
+	res.send(req.minion);
 };
 
 exports.updateMinionById = (req, res, next) => {
-	const { minionId } = req.params;
-	const minion = getFromDatabaseById('minions', minionId);
-
-	if (!minion) {
-		return next(new AppError(`Minion with id ${minionId} not found`, 404));
-	}
-
-	const updatedMinion = { ...minion, ...req.body };
+	const updatedMinion = { ...req.minion, ...req.body };
 
 	const success = updateInstanceInDatabase('minions', updatedMinion);
 
@@ -50,11 +36,6 @@ exports.updateMinionById = (req, res, next) => {
 
 exports.deleteMinionById = (req, res, next) => {
 	const { minionId } = req.params;
-	const minion = getFromDatabaseById('minions', minionId);
-
-	if (!minion) {
-		return next(new AppError(`Minion with id ${minionId} not found`, 404));
-	}
 
 	deleteFromDatabasebyId('minions', minionId);
 	res.status(204).send();

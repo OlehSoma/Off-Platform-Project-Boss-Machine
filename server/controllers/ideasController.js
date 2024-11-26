@@ -19,14 +19,7 @@ exports.getAllIdeas = (req, res, next) => {
 };
 
 exports.getIdeaById = (req, res, next) => {
-	const { ideaId } = req.params;
-	const idea = getFromDatabaseById('ideas', ideaId);
-
-	if (!idea) {
-		return next(new AppError(`Idea with id ${ideaId} not found`, 404));
-	}
-
-	res.send(idea);
+	res.send(req.idea);
 };
 
 exports.updateIdeaById = (req, res, next) => {
@@ -45,11 +38,6 @@ exports.updateIdeaById = (req, res, next) => {
 
 exports.deleteIdeaById = (req, res, next) => {
 	const { ideaId } = req.params;
-	const idea = getFromDatabaseById('ideas', ideaId);
-
-	if (!idea) {
-		return next(new AppError(`Idea with id ${ideaId} not found`, 404));
-	}
 
 	deleteFromDatabasebyId('ideas', ideaId);
 	res.status(204).send();
