@@ -28,15 +28,15 @@ app.use('/api/meetings', meetingsRoute);
 app.use('/api/ideas', ideasRoute);
 
 app.all('*', (req, res, next) => {
-	next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+  next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 });
 
 app.use(globalErrorHandler);
 
 // This conditional is here for testing purposes:
 if (!module.parent) {
-	// Add your code to start the server listening at PORT below:
-	app.listen(PORT, () => {
-		console.log(`App running on ${PORT}`);
-	});
+  // Add your code to start the server listening at PORT below:
+  app.listen(PORT, () => {
+    console.log(`App running on ${PORT}`);
+  });
 }
